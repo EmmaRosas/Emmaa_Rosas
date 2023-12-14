@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="centered-text" style="color: blue;">
+    <h1>Contact Details</h1>
+</div>
+<p>Name: {{ contact.name }}</p>
+<p>Email: {{ contact.email }}</p>
+<p>Notes: {{ contact.notes }}</p>
+<p>Created Time: {{ contact.created_time }}</p>
+<br>
+<a class="btn btn-info" href="{% url 'contact_list' %}" role="button">Home</a>
+<a class="btn btn-info" href="{% url 'contact_update' contact.pk %}" role="button">Edit</a>
+<a class="btn btn-info" href="{% url 'contact_delete' contact.pk %}" role="button">Delete</a>
+
+<hr>
+<div class="centered-text" style="color: green;">
+    <h4>&copy; Created by Emma Rosas</h4>
+</div>
+
+{% endblock content %}

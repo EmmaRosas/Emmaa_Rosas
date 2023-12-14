@@ -2,6 +2,53 @@
 
 {% block content %}
 
-<h1>Todo Tasks</h1>
+<div class="centered-text" style="color: blue;">
+    <h1>Contact Management</h1>
+</div>
+
+    <form action="{% url 'contact_create' %}" method="get">
+    <button type="submit">Create a New Contact</button>
+</form>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Contact Name</th>
+      <th>Email</th>
+      <th>Created Time</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for contact in contact_list %}
+    <tr>
+      <td>
+
+        <a class="icon-link">
+          <i class="bi bi-pencil"></i>
+      </a>
+        &nbsp;
+
+        <a class="icon-link">
+          <i class="bi bi-trash"></i>
+        </a>
+        &nbsp;
+
+        {{ contact.name }}
+      </td>
+      <td>
+        {{ contact.email}}
+      </td>
+      <td>
+        {{ contact.created_time}}
+      </td>
+
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<hr>
+<div class="centered-text" style="color: green;">
+    <h4>&copy; Created by Emma Rosas</h4>
+</div>
 
 {% endblock content %}
