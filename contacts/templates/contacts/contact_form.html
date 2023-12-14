@@ -2,7 +2,14 @@
 
 {% block content %}
 
-<h1>Create a Contact</h1>
+<div class="centered-text" style="color: blue;">
+    {% if is_creation %}
+        <h1>Create a Contact</h1>
+    {% else %}
+        <h1>Edit Contact</h1>
+    {% endif %}
+  </div>
+  
 <form method="post">
   {% csrf_token %}
   {{ form.as_p }}

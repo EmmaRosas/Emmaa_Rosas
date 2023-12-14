@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<div class="centered-text" style="color: blue;">
+    <h1>Confirm Delete</h1>
+</div>
+<p>Are you sure you want to delete contact "{{ contact.name }}"?</p>
+<form method="post" action="{% url 'contact_delete' contact.id %}">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger" >Delete</button>
+    <a href="{% url 'contact_list' %}" class="btn btn-info">Cancel</a>
+</form>
+<hr>
+<div class="centered-text" style="color: green;">
+    <h4>&copy; Created by Emma Rosas</h4>
+</div>
+{% endblock content %}
